@@ -9,5 +9,3 @@ function solution(a, b) {
     answer %= 7;
     return day[answer];
 }
-
-solution()
