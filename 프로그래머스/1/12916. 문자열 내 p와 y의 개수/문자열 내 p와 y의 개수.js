@@ -1,10 +1,9 @@
 function solution(s){
-    let pcnt = 0;
-    let ycnt = 0;
-    for(const i of s) {
-        if(i == 'p' || i == 'P') pcnt++;
-        else if(i == 'y' || i == 'Y') ycnt++;
-    }
-    const answer = pcnt == ycnt ? true : false;
+    const str = s.toLowerCase();
+    const answer = [...str].reduce((acc, cur) => {
+        if(cur == 'p') return acc + 1;
+        else if(cur == 'y') return acc - 1;
+        else return acc;
+    }, 0) == 0 ? true : false;
     return answer;
 }
