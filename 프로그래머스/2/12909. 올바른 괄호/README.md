@@ -1,10 +1,10 @@
 # [level 2] 올바른 괄호 - 12909 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12909) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12909#qna) 
 
 ### 성능 요약
 
-메모리: 37.1 MB, 시간: 5.70 ms
+메모리: 38.1 MB, 시간: 5.11 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 3일 18:22:17
+2023년 11월 3일 18:29:39
 
 ### 문제 설명
 
