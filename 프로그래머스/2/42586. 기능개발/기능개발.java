@@ -1,37 +1,36 @@
 import java.util.*;
 
 class Solution {
-    public int[] solution(int[] progresses, int[] speeds) {
+    public ArrayList<Integer> solution(int[] progresses, int[] speeds) {
+        ArrayList<Integer> answer = new ArrayList<>();
+
+        // 작업이 끝나기까지 며칠 걸리는지
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < progresses.length; i++) {
-            int cnt = 0; // 100%까지 걸리는 날
-            int pro = progresses[i];
-            for (; ; ) {
-                if (pro >= 100) break;
-                pro += speeds[i];
+            int cnt = 0;
+            while (progresses[i] < 100) {
+                progresses[i] += speeds[i];
                 cnt++;
             }
             queue.add(cnt);
         }
-
-        int[] arr = new int[100];
-        int idx = 0;
-        int day = 1; // 총 며칠 걸리는지
         System.out.println(queue);
-        int curr = queue.poll(); // 비교 대상
-        for (int i : queue) {
-            if (i > curr) {
-                day++;
-                curr = i;
-                idx++;
+
+        // 배포
+        int today = queue.poll();
+        int cnt = 1; // 배포되는 작업 수
+        while (!queue.isEmpty()) {
+            int work = queue.poll();
+            if (work <= today) {
+                cnt++;
             } else {
-                arr[idx]++;
+                answer.add(cnt);
+                today = work;
+                cnt = 1;
             }
         }
-        int[] answer = new int[day];
-        for (int i = 0; i < day; i++) {
-            answer[i] = arr[i] + 1;
-        }
+        answer.add(cnt);
+
         return answer;
     }
 }
